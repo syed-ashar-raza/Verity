@@ -1,0 +1,7 @@
+[
+ {"id":"qa-001","input":"Capital of France?","expected":"Paris","prediction":"Paris","metrics":{"exact_match":{"threshold":1.0}}},
+ {"id":"qa-002","input":"Refund window?","expected":"30 days","prediction":"Customers can request a refund within 30 days.","metrics":{"contains":{"threshold":1.0}},"latency_ms":142,"max_latency_ms":500},
+ {"id":"json-001","input":"Return customer object.","expected":"{\"name\":\"Ashar\",\"tier\":\"pro\"}","prediction":"{\"name\":\"Ashar\",\"tier\":\"pro\"}","metrics":{"json_valid":{"threshold":1.0},"json_structure_match":{"threshold":1.0}}},
+ {"id":"tool-001","input":"Get weather.","expected":"weather","prediction":"weather","expected_tool_calls":[{"name":"get_weather","arguments":{"city":"Lahore"}}],"actual_tool_calls":[{"name":"get_weather","arguments":{"city":"Lahore"}}],"metrics":{"tool_call_correctness":{"threshold":1.0}}},
+ {"id":"f1-001","input":"Describe service.","expected":"fast reliable inference API","prediction":"fast reliable inference API","metrics":{"token_f1":{"threshold":1.0}}}
+]

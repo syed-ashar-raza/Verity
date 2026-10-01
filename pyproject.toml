@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "verity-eval"
+version = "1.0.0"
+description = "Production-oriented evaluation and regression testing platform for AI systems."
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "Apache-2.0"}
+dependencies = ["fastapi>=0.115,<1", "uvicorn[standard]>=0.34,<1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3,<10", "ruff>=0.11,<1", "httpx>=0.28,<1"]
+
+[project.scripts]
+verity = "verity.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/verity"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
